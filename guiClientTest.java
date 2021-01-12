@@ -87,28 +87,29 @@ static class myFrame extends JFrame implements ActionListener {
 	}
 	
 	static private void connect(String userInput) throws IOException, ClassNotFoundException {
-		Socket serverConnection = new Socket(InetAddress.getByName("127.0.0.1"), 8080);
-		System.out.println("Connected");
+	    	Socket serverConnection = new Socket(InetAddress.getByName("127.0.0.1"), 8080);
+	    	System.out.println("Connected");
 		 
-		OutputStream outputStream = serverConnection.getOutputStream();
-		DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
+	    	OutputStream outputStream = serverConnection.getOutputStream();
+	    	DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
 		 
-		InputStream inputStream = serverConnection.getInputStream();
-	    ObjectInputStream dataInputStream = new ObjectInputStream(inputStream);	     
+	    	InputStream inputStream = serverConnection.getInputStream();
+	    	ObjectInputStream dataInputStream = new ObjectInputStream(inputStream);	     
 	     
-	    writeToServer(dataOutputStream, userInput);
-	    readFromServer(dataInputStream);
+	    	writeToServer(dataOutputStream, userInput);
+	    	readFromServer(dataInputStream);
 	     
-	    System.out.println("Closing sockets.");
-	    outputStream.close();
-	    inputStream.close();
-	    serverConnection.close();
+	    	System.out.println("Closing sockets.");
+	    	outputStream.close();
+	    	inputStream.close();
+	    	serverConnection.close();
 	}
 	
 	static public void writeToServer(DataOutputStream outputStream, String userInput) throws IOException {
-	    String geneString = userInput.replaceAll("\\s", ""); 
-	    outputStream.writeUTF(geneString.toUpperCase());
-	    outputStream.flush();	   
+	    	String geneString = userInput.replaceAll("\\s", ""); 
+	    	outputStream.writeUTF(geneString.toUpperCase());
+	    	outputStream.flush();	
+		
 		
 	}
 	
@@ -120,6 +121,7 @@ static class myFrame extends JFrame implements ActionListener {
 		for(int i = 0; i < intList.size(); i++) {
 			listModel.addElement(intList.get(i));
 		}
+		
 		
 		jList.setModel(listModel);
 		label1.setText("Total Results: " + String.valueOf(intList.size()));
