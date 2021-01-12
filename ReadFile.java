@@ -74,8 +74,6 @@ class read {
 				sb.append(str.toUpperCase());				
 			}
 			
-			sb.delete(0, gene.length());
-			
 			int index = 0;
 			while(index >= 0) {
 				index = sb.indexOf(gene, index + 1);
