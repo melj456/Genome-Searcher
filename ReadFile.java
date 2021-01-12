@@ -17,7 +17,7 @@ import java.net.Socket;
 public class ReadFile {
 
 	public static void main(String[] args) throws IOException {
-		boolean shutdown = false;
+			boolean shutdown = false;
 		
 		
 			ServerSocket ss = new ServerSocket(8080, 1, InetAddress.getByName("127.0.0.1")); 
@@ -25,20 +25,20 @@ public class ReadFile {
 			System.out.println("Connection from: " + socket);
 			
 			OutputStream outputStream = socket.getOutputStream();
-	        ObjectOutputStream dataOutputStream = new ObjectOutputStream(outputStream);
+	        	ObjectOutputStream dataOutputStream = new ObjectOutputStream(outputStream);
 			
 			InputStream inputStream = socket.getInputStream();
 			DataInputStream dataInputStream = new DataInputStream(inputStream);			
 			String message = dataInputStream.readUTF();
-//	        System.out.println("The message from client was: " + message);
+	//	        System.out.println("The message from client was: " + message);
 	        	        
-	        writeToClient(dataOutputStream, message);
+	        	writeToClient(dataOutputStream, message);
 	        
-	        System.out.println("Closing sockets.");	
-	        outputStream.close();
-	        inputStream.close();
-	        ss.close();
-	        socket.close();
+			System.out.println("Closing sockets.");	
+			outputStream.close();
+			inputStream.close();
+			ss.close();
+			socket.close();
 	         
 	
 }
@@ -48,7 +48,7 @@ public class ReadFile {
 			outputStream.writeObject((r.Search(message)));
 			
 			System.out.println("Writing to client...");
-	        outputStream.flush();	         
+	        	outputStream.flush();	         
 		}
 		
 }
