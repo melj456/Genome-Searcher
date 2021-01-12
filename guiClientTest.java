@@ -106,8 +106,7 @@ static class myFrame extends JFrame implements ActionListener {
 	}
 	
 	static public void writeToServer(DataOutputStream outputStream, String userInput) throws IOException {
-	    	String geneString = userInput.replaceAll("\\s", ""); 
-	    	outputStream.writeUTF(geneString.toUpperCase());
+	    	outputStream.writeUTF(userInput.toUpperCase());
 	    	outputStream.flush();	
 		
 		
